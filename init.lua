@@ -35,3 +35,42 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+require'nvim-tree'.setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  auto_reload_on_write = true,
+  hijack_cursor       = false,
+  update_cwd          = true,
+  diagnostics = {
+    enable = true,
+  },
+  filters = {
+    dotfiles = false,      -- ← ここをfalseにするのがポイント
+    custom = {},
+  },
+  view = {
+    width = 30,
+    side = 'left',
+  },
+  git = {
+    enable = true,
+    ignore = false,   -- gitignoreの無視設定を無効にしてすべて表示
+  },
+    update_focused_file = {
+    enable = true,
+    update_cwd = true,
+  },
+  filesystem_watchers = {
+    enable = true,
+    debounce_delay = 50,
+  },
+}
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.dart",
+  callback = function()
+    vim.cmd("DartFmt")
+  end,
+})
+
