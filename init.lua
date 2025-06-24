@@ -404,3 +404,12 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter", "InsertLeave" }, {
 })
 
 vim.api.nvim_set_hl(0, "ZenkakuHighlight", { fg = "#eb6f92", bold = true })
+
+require("scrollbar.handlers.search").setup()
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.dart",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})

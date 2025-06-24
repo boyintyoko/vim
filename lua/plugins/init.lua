@@ -16,10 +16,19 @@ return {
           yaml = { "prettier" },
           markdown = { "prettier" },
           lua = { "stylua" },
+          dart = { "dart_format" },
+        },
+        formatters = {
+          dart_format = {
+            command = "dart",
+            args = { "format", "/Users/admin1/Documents/main.dart" },
+            stdin = false,
+          },
         },
         format_on_save = {
           timeout_ms = 500,
           lsp_fallback = true,
+          async = true,
         },
       }
     end,
@@ -238,5 +247,10 @@ return {
 
       alpha.setup(dashboard.opts)
     end,
+  },
+
+  {
+    "kevinhwang91/nvim-hlslens",
+    event = "VeryLazy",
   },
 }
