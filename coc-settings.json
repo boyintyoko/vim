@@ -1,0 +1,88 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "lua",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "json",
+    "xml",
+    "yaml",
+    "toml",
+    "ruby",
+    "python",
+    "dart" // ← 追加
+  ],
+  "coc.preferences.formatters": {
+    "stylua": {
+      "command": "stylua",
+      "args": [
+        "-"
+      ]
+    },
+    "prettier": {
+      "command": "prettier",
+      "args": [
+        "--stdin-filepath",
+        "%filepath"
+      ]
+    },
+    "xmllint": {
+      "command": "xmllint",
+      "args": [
+        "--format",
+        "-"
+      ]
+    },
+    "taplo": {
+      "command": "taplo",
+      "args": [
+        "fmt",
+        "-"
+      ]
+    },
+    "black": {
+      "command": "black",
+      "args": [
+        "-q",
+        "-"
+      ]
+    },
+    "dartfmt": {
+      "command": "dart",
+      "args": [
+        "format",
+        "--output=show",
+        "--stdin-name",
+        "%filepath",
+        "-"
+      ]
+    }
+  },
+  "coc.preferences.formatter": {
+    "lua": "stylua",
+    "javascript": "prettier",
+    "javascriptreact": "prettier",
+    "typescript": "prettier",
+    "typescriptreact": "prettier",
+    "json": "prettier",
+    "yaml": "prettier",
+    "xml": "xmllint",
+    "toml": "taplo",
+    "ruby": "prettier",
+    "python": "black",
+    "dart": "dartfmt" // ← 追加
+  },
+  "languageserver": {
+    "dart": {
+      "command": "dart",
+      "args": [
+        "/path/to/flutter/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot",
+        "--lsp"
+      ],
+      "filetypes": [
+        "dart"
+      ]
+    }
+  }
+}
